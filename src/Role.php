@@ -17,13 +17,6 @@ use Spatie\Permission\PermissionRegistrar;
 class Role extends Resource
 {
     /**
-     * The model the resource corresponds to.
-     *
-     * @var string
-     */
-    public static $model = \Spatie\Permission\Models\Role::class;
-
-    /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
@@ -40,6 +33,11 @@ class Role extends Resource
     ];
 
     public static $displayInNavigation = false;
+
+    public function model()
+    {
+        return config('permission.models.role');
+    }
 
     public static function getModel()
     {
